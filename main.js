@@ -7,7 +7,6 @@ import galleryItems from "./app.js";
    const modal = document.querySelector('.lightbox__content');
    const lightboxImage = document.querySelector('.lightbox__image');
    const btn = document.querySelector('[data-action="close-lightbox"]');
-  //  const lightboxButton = document.querySelector('.lightbox__button');
    const imageMarkup = createGalleryItems(galleryItems);
 
 
@@ -86,43 +85,16 @@ function onEscapePress(e) {
   }
 }
 // ///////////////////////////////////////////////////////////////////////////
-function onEnterOpener(e) {
-  if (e.code === "Enter") {
-   
-  }
-}
-
 
 function toTheSide(e) {
   if (e.code === "ArrowLeft") {
-    onArrowLeft();
+
   }
   if (e.code === "ArrowRight") {
-    onArrowRight();
+ 
   }
 }
 
-function onArrowLeft() {
-  let index = Number(lightboxImage.dataset.index);
-  if (index === 0) {
-    findNewIndex(galleryItems.length - 1);
-    return;
-  }
-  findNewIndex(index, -1);
-}
 
-function onArrowRight() {
-  let index = Number(lightboxImage.dataset.index);
-  if (index === galleryItems.length - 1) {
-    findNewIndex(0);
-    return;
-  }
-  findNewIndex(index, 1);
-}
-
-function findNewIndex(index, i = 0) {
-  lightboxImage.dataset.index = `${index + i}`;
-  lightboxImage.src = galleryItems[index + i].original;
-}
 
   
